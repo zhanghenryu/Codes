@@ -8,9 +8,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8"/>
     <title>$Title$</title>
   </head>
   <body>
+    测试汉语
   $END$
   </body>
 </html>

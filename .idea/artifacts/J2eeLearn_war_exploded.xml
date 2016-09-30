@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="J2eeLearn:war exploded">
+  <artifact type="exploded-war" build-on-make="true" name="J2eeLearn:war exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/J2eeLearn_war_exploded</output-path>
     <root id="root">
       <element id="javaee-facet-resources" facet="J2eeLearn/web/Web" />
