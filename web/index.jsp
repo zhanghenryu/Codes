@@ -1,6 +1,7 @@
 <%@ page import="com.cppor.codes.jspLearn.common.StringUtils" %>
 <%@ page import="com.cppor.codes.jspLearn.bean.Student" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="my" uri="http://cppor.com/tag" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -30,6 +31,8 @@
 <%--<jsp:forward page="404.jsp"></jsp:forward>--%>
 
 <form action="login" method="post">
+    <my:showIp></my:showIp>
+    <%=request.getRemoteHost()%>
     <%
         Object username = session.getAttribute("username");
         if (null != username) {
