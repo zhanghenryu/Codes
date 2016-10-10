@@ -1,7 +1,7 @@
 <%@ page import="com.cppor.codes.jspLearn.common.StringUtils" %>
 <%@ page import="com.cppor.codes.jspLearn.bean.Student" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="my" uri="http://cppor.com/tag" %>
+<%@ taglib prefix="my" uri="http://cppor.com" %>
 
 <%--
   Created by IntelliJ IDEA.
@@ -31,8 +31,6 @@
 <%--<jsp:forward page="404.jsp"></jsp:forward>--%>
 
 <form action="login" method="post">
-    <my:showIp></my:showIp>
-    <%=request.getRemoteHost()%>
     <%
         Object username = session.getAttribute("username");
         if (null != username) {
@@ -57,10 +55,18 @@
 
     ${true && false}
     ${stud.name}
-    username:<input id="username" name="username" type="text" value="${stu.name}"/>
-    password:<input id="password" name="password" type="text" value=""/>
+    username:<input id="username" name="username1" type="text" value="${stu.name}"/>
+    password:<input id="password" name="password1" type="text" value=""/>
     <input type="submit"/>
-
+    <my:login username="userName" password="userPwd"></my:login>
+<my:choose>
+    <my:when test="${10>5}">
+        测试大于
+    </my:when>
+    <my:else1>
+        测试小于 elsel中的
+    </my:else1>
+</my:choose>
 </form>
 </body>
 </html>

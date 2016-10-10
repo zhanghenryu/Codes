@@ -7,12 +7,42 @@
 
     <tlib-version>1.0</tlib-version>
     <short-name>myshortname</short-name>
-    <uri>http://cppor.com/tag</uri>
+    <uri>http://cppor.com</uri>
 
     <!-- Invoke 'Generate' action to add tags or functions -->
 <tag>
-    <name>showIp</name>
-    <tag-class>com.cppor.codes.jspLearn.tag.MyTag</tag-class>
+    <name>login</name>
+    <tag-class>com.cppor.codes.jspLearn.tag.LoginTag</tag-class>
     <body-content>scriptless</body-content>
+    <attribute>
+        <name>username</name>
+        <required>true</required>
+        <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>password</name>
+        <required>true</required>
+        <rtexprvalue>false</rtexprvalue>
+    </attribute>
 </tag>
+    <tag>
+        <name>choose</name>
+        <tag-class>com.cppor.codes.jspLearn.tag.ChooseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>when</name>
+        <tag-class>com.cppor.codes.jspLearn.tag.WhenTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>else1</name>
+        <tag-class>com.cppor.codes.jspLearn.tag.ElseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
 </taglib>
