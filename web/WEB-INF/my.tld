@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>myshortname</short-name>
+    <uri>http://cppor.com</uri>
+
+    <!-- Invoke 'Generate' action to add tags or functions -->
+<tag>
+    <name>login</name>
+    <tag-class>com.cppor.codes.jspLearn.tag.LoginTag</tag-class>
+    <body-content>scriptless</body-content>
+    <attribute>
+        <name>username</name>
+        <required>true</required>
+        <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+        <name>password</name>
+        <required>true</required>
+        <rtexprvalue>false</rtexprvalue>
+    </attribute>
+</tag>
+    <tag>
+        <name>choose</name>
+        <tag-class>com.cppor.codes.jspLearn.tag.ChooseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+    <tag>
+        <name>when</name>
+        <tag-class>com.cppor.codes.jspLearn.tag.WhenTag</tag-class>
+        <body-content>scriptless</body-content>
+        <attribute>
+            <name>test</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>else1</name>
+        <tag-class>com.cppor.codes.jspLearn.tag.ElseTag</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+</taglib>
