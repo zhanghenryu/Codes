@@ -1,5 +1,7 @@
 package com.cppor.codes.jspLearn.servlet;
 
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
 import javafx.application.Application;
 
 import javax.servlet.ServletConfig;
@@ -7,6 +9,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -20,6 +25,30 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
         System.out.println("Servlet Init : " + Calendar.getInstance().toString());
         super.init(config);
         
+    }
+
+    static final String DIRVER = "com.mysql.jdbc.Driver";
+    static String DB = "jdbc:mysql://localhost:3306/jeesite";
+    protected String login(String user, String pwd) throws ClassNotFoundException {
+        // 都说是注册数据库驱动，但是我没看出来，所以估计得看一下
+
+        String result = "";
+        try {
+            Class.forName(DIRVER);//.newInstance();
+            try (java.sql.Connection connection = DriverManager.getConnection(DB, "jeesite", "jeesite")) {
+                try (java.sql.Statement stat = connection.createStatement()) {
+                    try (ResultSet resultSet = stat.executeQuery("SELECT PWD_ FROM ACT_ID_USER")) {
+                        while (resultSet.next()) {
+                            result += resultSet.getString(1) + ";";
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
@@ -51,8 +80,13 @@ public class ServletLogin extends javax.servlet.http.HttpServlet {
         Cookie loginCookie = new Cookie("logined", UUID.randomUUID().toString());
         response.addCookie(loginCookie);
         session.setAttribute("logined", loginCookie.getValue());
-
-        response.getWriter().write("success");
+String result = "";
+        try {
+            result = login("","");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        response.getWriter().write(result);
     }
 
     @Override
